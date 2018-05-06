@@ -26,3 +26,16 @@ C:\Users\d13\Desktop\testDev\PruebaSeguros\PruebaSeguros\WebAPI\PruebasUnitarias
 C:\Users\d13\Desktop\testDev\PruebaSeguros\PruebaSeguros\WebAPI\PruebasUnitarias\obj\Debug\PruebasUnitarias.csproj.CopyComplete
 C:\Users\d13\Desktop\testDev\PruebaSeguros\PruebaSeguros\WebAPI\PruebasUnitarias\obj\Debug\PruebasUnitarias.dll
 C:\Users\d13\Desktop\testDev\PruebaSeguros\PruebaSeguros\WebAPI\PruebasUnitarias\obj\Debug\PruebasUnitarias.pdb
+C:\Users\d13\Desktop\testDev\PruebaSeguros\PruebaSeguros\WebAPI\PruebasUnitarias\bin\Debug\System.Web.Optimization.dll
+C:\Users\d13\Desktop\testDev\PruebaSeguros\PruebaSeguros\WebAPI\PruebasUnitarias\bin\Debug\System.Web.Mvc.dll
+C:\Users\d13\Desktop\testDev\PruebaSeguros\PruebaSeguros\WebAPI\PruebasUnitarias\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\d13\Desktop\testDev\PruebaSeguros\PruebaSeguros\WebAPI\PruebasUnitarias\bin\Debug\System.Web.Razor.dll
+C:\Users\d13\Desktop\testDev\PruebaSeguros\PruebaSeguros\WebAPI\PruebasUnitarias\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\d13\Desktop\testDev\PruebaSeguros\PruebaSeguros\WebAPI\PruebasUnitarias\bin\Debug\System.Web.WebPages.dll
+C:\Users\d13\Desktop\testDev\PruebaSeguros\PruebaSeguros\WebAPI\PruebasUnitarias\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\d13\Desktop\testDev\PruebaSeguros\PruebaSeguros\WebAPI\PruebasUnitarias\bin\Debug\System.Web.Optimization.xml
+C:\Users\d13\Desktop\testDev\PruebaSeguros\PruebaSeguros\WebAPI\PruebasUnitarias\bin\Debug\System.Web.Mvc.xml
+C:\Users\d13\Desktop\testDev\PruebaSeguros\PruebaSeguros\WebAPI\PruebasUnitarias\bin\Debug\System.Web.Razor.xml
+C:\Users\d13\Desktop\testDev\PruebaSeguros\PruebaSeguros\WebAPI\PruebasUnitarias\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\d13\Desktop\testDev\PruebaSeguros\PruebaSeguros\WebAPI\PruebasUnitarias\bin\Debug\System.Web.WebPages.xml
+C:\Users\d13\Desktop\testDev\PruebaSeguros\PruebaSeguros\WebAPI\PruebasUnitarias\bin\Debug\System.Web.WebPages.Deployment.xml

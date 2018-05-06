@@ -16,10 +16,18 @@ namespace MVC.Controllers
         // GET: Cliente
         public ActionResult Index()
         {
-            IEnumerable<Models.Cliente> clienteList;
-            HttpResponseMessage response = GlobalVariables.webApiCliente.GetAsync("cliente").Result;
-            clienteList = response.Content.ReadAsAsync<IEnumerable<Cliente>>().Result;
-            return View(clienteList);
+            try
+            {
+                IEnumerable<Models.Cliente> clienteLista;
+                HttpResponseMessage response = GlobalVariables.webApiCliente.GetAsync("cliente").Result;
+                clienteLista = response.Content.ReadAsAsync<IEnumerable<Cliente>>().Result;
+                return View(clienteLista);
+            }
+            catch
+            {
+                //TODO: Log
+                return View();
+            }
         }
 
         // GET: Cliente/Details/5
@@ -62,25 +70,32 @@ namespace MVC.Controllers
         // GET: Cliente/Edit/5
         public ActionResult Edit(int id)
         {
-            Cliente cliente = null;
-
-            using (var httpCliente = new HttpClient())
+            try
             {
-                var respuesta = GlobalVariables.webApiCliente.GetAsync("cliente?id=" + id.ToString());
-                respuesta.Wait();
+                Cliente cliente = null;
 
-                var resultado = respuesta.Result;
-                if (resultado.IsSuccessStatusCode)
+                using (var httpCliente = new HttpClient())
                 {
-                    var leerResultado = resultado.Content.ReadAsAsync<Cliente>();
-                    leerResultado.Wait();
+                    var respuesta = GlobalVariables.webApiCliente.GetAsync("cliente?id=" + id.ToString());
+                    respuesta.Wait();
 
-                    cliente = leerResultado.Result;
+                    var resultado = respuesta.Result;
+                    if (resultado.IsSuccessStatusCode)
+                    {
+                        var leerResultado = resultado.Content.ReadAsAsync<Cliente>();
+                        leerResultado.Wait();
+
+                        cliente = leerResultado.Result;
+                    }
                 }
-
+                return View(cliente);
+            }
+            catch
+            {
+                //TODO: Log
+                return View();
             }
 
-            return View(cliente);
         }
 
         [Authorize]
@@ -109,25 +124,32 @@ namespace MVC.Controllers
         // GET: Cliente/Delete/5
         public ActionResult Delete(int id)
         {
-            Cliente cliente = null;
-
-            using (var httpCliente = new HttpClient())
+            try
             {
-                var respuesta = GlobalVariables.webApiCliente.GetAsync("cliente?id=" + id.ToString());
-                respuesta.Wait();
+                Cliente cliente = null;
 
-                var resultado = respuesta.Result;
-                if (resultado.IsSuccessStatusCode)
+                using (var httpCliente = new HttpClient())
                 {
-                    var leerResultado = resultado.Content.ReadAsAsync<Cliente>();
-                    leerResultado.Wait();
+                    var respuesta = GlobalVariables.webApiCliente.GetAsync("cliente?id=" + id.ToString());
+                    respuesta.Wait();
 
-                    cliente = leerResultado.Result;
+                    var resultado = respuesta.Result;
+                    if (resultado.IsSuccessStatusCode)
+                    {
+                        var leerResultado = resultado.Content.ReadAsAsync<Cliente>();
+                        leerResultado.Wait();
+
+                        cliente = leerResultado.Result;
+                    }
                 }
-
+                return View(cliente);
+            }
+            catch
+            {
+                //TODO: Log
+                return View();
             }
 
-            return View(cliente);
         }
 
         [Authorize]
@@ -150,7 +172,15 @@ namespace MVC.Controllers
         [Authorize]
         public ActionResult AsignarPoliza(int id)
         {
-            return RedirectToAction("Index/" + id.ToString(), "AsignarPoliza");
+            try
+            {
+                return RedirectToAction("Index/" + id.ToString(), "AsignarPoliza");
+            }
+            catch
+            {
+                return View();
+            }
+
         }
     }
 }

@@ -22,8 +22,8 @@ namespace PruebasUnitarias
         [TestMethod]
         public void ValidacionPorcentajeCubrimiento()
         {
-            var controller = new ClienteController();
-            var response = controller.Get();
+            //var controller = new ClienteController();
+            //var response = controller.Get();
 
 
         }

@@ -9,9 +9,9 @@ namespace MVC.Models
 
         [Required]
         [Display(Name = "Nombre")]
-        public string nombre { get; set; }
+        public string Nombre { get; set; }
 
         [Display(Name = "Inactivo")]
-        public bool estado { get; set; }
+        public bool Estado { get; set; }
     }
 }

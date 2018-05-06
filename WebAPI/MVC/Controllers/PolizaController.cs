@@ -1,4 +1,6 @@
 ﻿using MVC.Models;
+using MVC.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Web.Mvc;
@@ -12,10 +14,19 @@ namespace MVC.Controllers
         // GET: Poliza
         public ActionResult Index()
         {
-            IEnumerable<Models.Poliza> polizaList;
-            HttpResponseMessage response = GlobalVariables.webApiCliente.GetAsync("poliza").Result;
-            polizaList = response.Content.ReadAsAsync<IEnumerable<Poliza>>().Result;
-            return View(polizaList);
+            try
+            {
+                IEnumerable<Models.Poliza> polizaList;
+                HttpResponseMessage response = GlobalVariables.webApiCliente.GetAsync("poliza").Result;
+                polizaList = response.Content.ReadAsAsync<IEnumerable<Poliza>>().Result;
+                return View(polizaList);
+            }
+            catch
+            {
+                //TODO: Log
+                return View();
+            }
+
         }
 
         [Authorize]
@@ -29,8 +40,15 @@ namespace MVC.Controllers
         // GET: Poliza/Create
         public ActionResult Create()
         {
+            IEnumerable<Models.TipoCubrimiento> tipoDeRiesgos;
+            HttpResponseMessage respuesta = GlobalVariables.webApiCliente.GetAsync("tipocubrimiento").Result;
+            tipoDeRiesgos = respuesta.Content.ReadAsAsync<IEnumerable<TipoCubrimiento>>().Result;
 
-            return View();
+            PolizaVM poliza = new PolizaVM();
+
+            poliza.TipoCubrimiento = new SelectList(tipoDeRiesgos, "Id", "Nombre");
+
+            return View(poliza);
         }
 
         [Authorize]
@@ -40,8 +58,6 @@ namespace MVC.Controllers
         {
             try
             {
-                // TODO: Add insert logic here
-                // Permite validar si las reglas del modelo son validas
                 if (ModelState.IsValid)
                 {
                     HttpResponseMessage response = GlobalVariables.webApiCliente.PostAsJsonAsync("poliza", poliza).Result;
@@ -59,26 +75,48 @@ namespace MVC.Controllers
         // GET: Poliza/Edit/5
         public ActionResult Edit(int id)
         {
-
-            Poliza poliza = null;
-
-            using (var cliente = new HttpClient())
+            try
             {
-                var respuesta = GlobalVariables.webApiCliente.GetAsync("poliza?id=" + id.ToString());
-                respuesta.Wait();
+                PolizaVM poliza = null;
 
-                var resultado = respuesta.Result;
-                if (resultado.IsSuccessStatusCode)
+                IEnumerable<Models.TipoCubrimiento> tipoDeRiesgos;
+                HttpResponseMessage response = GlobalVariables.webApiCliente.GetAsync("tipocubrimiento").Result;
+                tipoDeRiesgos = response.Content.ReadAsAsync<IEnumerable<TipoCubrimiento>>().Result;
+
+                using (var cliente = new HttpClient())
                 {
-                    var leerResultado = resultado.Content.ReadAsAsync<Poliza>();
-                    leerResultado.Wait();
+                    var respuesta = GlobalVariables.webApiCliente.GetAsync("poliza?id=" + id.ToString());
+                    respuesta.Wait();
 
-                    poliza = leerResultado.Result;
+                    var resultado = respuesta.Result;
+                    if (resultado.IsSuccessStatusCode)
+                    {
+                        var leerResultado = resultado.Content.ReadAsAsync<Poliza>();
+                        leerResultado.Wait();
+
+                        poliza = new PolizaVM
+                        {
+                            Descripcion = leerResultado.Result.Descripcion,
+                            Nombre = leerResultado.Result.Nombre,
+                            FechaInicio = leerResultado.Result.FechaInicio,
+                            PeridoCobertura = leerResultado.Result.PeridoCobertura,
+                            ValorPoliza = leerResultado.Result.ValorPoliza,
+                            TipoCubrimiento = new SelectList(tipoDeRiesgos, "Id", "Nombre", leerResultado.Result.TipoCubrimiento)
+                        };
+                    }
                 }
 
+                return View(poliza);
+            }
+            catch(Exception ex)
+            {
+
+                string s = ex.ToString();
+                //TODO: Log
+                return View();
             }
 
-            return View(poliza);
+
         }
 
         [Authorize]
@@ -107,26 +145,31 @@ namespace MVC.Controllers
         // GET: Poliza/Delete/5
         public ActionResult Delete(int id)
         {
-            Poliza poliza = null;
-
-            using (var cliente = new HttpClient())
+            try
             {
-                var respuesta = GlobalVariables.webApiCliente.GetAsync("poliza?id=" + id.ToString());
-                respuesta.Wait();
+                Poliza poliza = null;
 
-                var resultado = respuesta.Result;
-                if (resultado.IsSuccessStatusCode)
+                using (var cliente = new HttpClient())
                 {
-                    var leerResultado = resultado.Content.ReadAsAsync<Poliza>();
-                    leerResultado.Wait();
+                    var respuesta = GlobalVariables.webApiCliente.GetAsync("poliza?id=" + id.ToString());
+                    respuesta.Wait();
 
-                    poliza = leerResultado.Result;
+                    var resultado = respuesta.Result;
+                    if (resultado.IsSuccessStatusCode)
+                    {
+                        var leerResultado = resultado.Content.ReadAsAsync<Poliza>();
+                        leerResultado.Wait();
+
+                        poliza = leerResultado.Result;
+                    }
                 }
-
+                return View(poliza);
             }
-
-            return View(poliza);
-
+            catch
+            {
+                //TODO: Log
+                return View();
+            }
         }
 
         [Authorize]
@@ -137,7 +180,6 @@ namespace MVC.Controllers
             try
             {
                 HttpResponseMessage response = GlobalVariables.webApiCliente.DeleteAsync("poliza?id=" + id.ToString()).Result;
-
                 return RedirectToAction("Index");
             }
             catch

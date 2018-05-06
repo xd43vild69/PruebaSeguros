@@ -10,6 +10,11 @@ namespace WebAPI.DAL
         }
 
         public DbSet<Poliza> Polizas { get; set; }
+
         public DbSet<Cliente> Clientes { get; set; }
+
+        public DbSet<TipoDeRiesgo> TipoDeRiegos { get; set; }
+
+        public DbSet<TipoCubrimiento> TiposCubrimientos { get; set; }
     }
 }

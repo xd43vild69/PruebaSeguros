@@ -17,46 +17,54 @@ namespace MVC.Controllers
         // GET: AsignarPoliza
         public ActionResult Index(int id)
         {
-            IEnumerable<Models.Poliza> polizaList;
-            HttpResponseMessage response2 = GlobalVariables.webApiCliente.GetAsync("poliza").Result;
-            polizaList = response2.Content.ReadAsAsync<IEnumerable<Poliza>>().Result;
+            try
+            {
+                IEnumerable<Models.Poliza> polizaLista;
+                HttpResponseMessage response2 = GlobalVariables.webApiCliente.GetAsync("poliza").Result;
+                polizaLista = response2.Content.ReadAsAsync<IEnumerable<Poliza>>().Result;
 
-            AsignarPoliza asignarPolizar = new AsignarPoliza();
+                AsignarPoliza asignarPolizar = new AsignarPoliza();
 
-            Session["clienteId"] = id;
+                Session["clienteId"] = id;
 
-            asignarPolizar.clienteId = id;
-            asignarPolizar.PolizasLista = polizaList.ToList();
+                asignarPolizar.clienteId = id;
+                asignarPolizar.PolizasLista = polizaLista.ToList();
 
-            return View(asignarPolizar);
+                return View(asignarPolizar);
+            }
+            catch
+            {
+                //TODO: Log
+                return View();
+            }
+
         }
 
         [Authorize]
         [HttpGet]
         public ActionResult Cancelar(AsignarPoliza asignarPoliza)
         {
-            Poliza poliza = new Poliza();
-
-            using (var cliente = new HttpClient())
-            {
-                var respuesta = GlobalVariables.webApiCliente.GetAsync("poliza?id=" + asignarPoliza.id);
-                respuesta.Wait();
-
-                var resultado = respuesta.Result;
-                if (resultado.IsSuccessStatusCode)
-                {
-                    var leerResultado = resultado.Content.ReadAsAsync<Poliza>();
-                    leerResultado.Wait();
-
-                    poliza = leerResultado.Result;
-                }
-
-            }
-
-            poliza.estado = true;
-
             try
             {
+                Poliza poliza = new Poliza();
+
+                using (var cliente = new HttpClient())
+                {
+                    var respuesta = GlobalVariables.webApiCliente.GetAsync("poliza?id=" + asignarPoliza.id);
+                    respuesta.Wait();
+
+                    var resultado = respuesta.Result;
+                    if (resultado.IsSuccessStatusCode)
+                    {
+                        var leerResultado = resultado.Content.ReadAsAsync<Poliza>();
+                        leerResultado.Wait();
+
+                        poliza = leerResultado.Result;
+                    }
+
+                }
+
+                poliza.Estado = true;
 
                 if (ModelState.IsValid)
                 {
@@ -70,36 +78,34 @@ namespace MVC.Controllers
             }
             return RedirectToAction("Index/" + (int)Session["clienteId"]);
         }
-    
+
         [Authorize]
         [HttpGet]
         public ActionResult Asignar(int id, AsignarPoliza asignarPoliza)
         {
 
-            Poliza poliza = new Poliza();
-
-            using (var cliente = new HttpClient())
-            {
-                var respuesta = GlobalVariables.webApiCliente.GetAsync("poliza?id=" + asignarPoliza.id);
-                respuesta.Wait();
-
-                var resultado = respuesta.Result;
-                if (resultado.IsSuccessStatusCode)
-                {
-                    var leerResultado = resultado.Content.ReadAsAsync<Poliza>();
-                    leerResultado.Wait();
-
-                    poliza = leerResultado.Result;
-                }
-
-            }
-
-            poliza.ClienteId = (int)Session["clienteId"];
-
             //TODO: asignar cliente a la poliza seleccionada
             try
             {
-                // TODO: Add update logic here
+                Poliza poliza = new Poliza();
+
+                using (var cliente = new HttpClient())
+                {
+                    var respuesta = GlobalVariables.webApiCliente.GetAsync("poliza?id=" + asignarPoliza.id);
+                    respuesta.Wait();
+
+                    var resultado = respuesta.Result;
+                    if (resultado.IsSuccessStatusCode)
+                    {
+                        var leerResultado = resultado.Content.ReadAsAsync<Poliza>();
+                        leerResultado.Wait();
+
+                        poliza = leerResultado.Result;
+                    }
+
+                }
+
+                poliza.ClienteId = (int)Session["clienteId"];
 
                 if (ModelState.IsValid)
                 {
