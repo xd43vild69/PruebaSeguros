@@ -46,7 +46,7 @@ namespace WebAPI.DAL
         {
             using (var db = new DAL.DALContexto())
             {
-                return db.Set<T>().ToList();
+                return db.Set<T>().Where(x => x.estado == false).ToList();
             }
         }
     }

@@ -8,8 +8,11 @@ using MVC.Models;
 
 namespace MVC.Controllers
 {
+    [Authorize]
     public class ClienteController : Controller
     {
+
+        [Authorize]
         // GET: Cliente
         public ActionResult Index()
         {
@@ -25,12 +28,14 @@ namespace MVC.Controllers
             return View();
         }
 
+        [Authorize]
         // GET: Cliente/Create
         public ActionResult Create()
         {
             return View();
         }
 
+        [Authorize]
         // POST: Cliente/Create
         [HttpPost]
         public ActionResult Create(Cliente cliente)
@@ -53,6 +58,7 @@ namespace MVC.Controllers
             return View();
         }
 
+        [Authorize]
         // GET: Cliente/Edit/5
         public ActionResult Edit(int id)
         {
@@ -77,6 +83,7 @@ namespace MVC.Controllers
             return View(cliente);
         }
 
+        [Authorize]
         // POST: Cliente/Edit/5
         [HttpPost]
         public ActionResult Edit(Cliente cliente)
@@ -98,6 +105,7 @@ namespace MVC.Controllers
             return View();
         }
 
+        [Authorize]
         // GET: Cliente/Delete/5
         public ActionResult Delete(int id)
         {
@@ -122,6 +130,7 @@ namespace MVC.Controllers
             return View(cliente);
         }
 
+        [Authorize]
         // POST: Cliente/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
@@ -138,6 +147,7 @@ namespace MVC.Controllers
             }
         }
 
+        [Authorize]
         public ActionResult AsignarPoliza(int id)
         {
             return RedirectToAction("Index/" + id.ToString(), "AsignarPoliza");

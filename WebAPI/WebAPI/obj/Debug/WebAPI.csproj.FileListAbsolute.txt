@@ -67,3 +67,4 @@ C:\Users\d13\Desktop\testDev\PruebaSeguros\PruebaSeguros\WebAPI\WebAPI\bin\Entit
 C:\Users\d13\Desktop\testDev\PruebaSeguros\PruebaSeguros\WebAPI\WebAPI\bin\EntityFramework.SqlServer.dll
 C:\Users\d13\Desktop\testDev\PruebaSeguros\PruebaSeguros\WebAPI\WebAPI\bin\EntityFramework.xml
 C:\Users\d13\Desktop\testDev\PruebaSeguros\PruebaSeguros\WebAPI\WebAPI\bin\EntityFramework.SqlServer.xml
+C:\Users\d13\Desktop\testDev\PruebaSeguros\PruebaSeguros\WebAPI\WebAPI\obj\Debug\WebAPI.csprojResolveAssemblyReference.cache

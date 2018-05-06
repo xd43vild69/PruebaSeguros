@@ -76,6 +76,7 @@ C:\Users\d13\Desktop\testDev\PruebaSeguros\PruebaSeguros\WebAPI\MVC\bin\Microsof
 C:\Users\d13\Desktop\testDev\PruebaSeguros\PruebaSeguros\WebAPI\MVC\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\d13\Desktop\testDev\PruebaSeguros\PruebaSeguros\WebAPI\MVC\bin\Newtonsoft.Json.dll
 C:\Users\d13\Desktop\testDev\PruebaSeguros\PruebaSeguros\WebAPI\MVC\bin\Owin.dll
+C:\Users\d13\Desktop\testDev\PruebaSeguros\PruebaSeguros\WebAPI\MVC\bin\System.Net.Http.Formatting.dll
 C:\Users\d13\Desktop\testDev\PruebaSeguros\PruebaSeguros\WebAPI\MVC\bin\System.Web.Helpers.dll
 C:\Users\d13\Desktop\testDev\PruebaSeguros\PruebaSeguros\WebAPI\MVC\bin\System.Web.Mvc.dll
 C:\Users\d13\Desktop\testDev\PruebaSeguros\PruebaSeguros\WebAPI\MVC\bin\System.Web.Optimization.dll
@@ -85,6 +86,7 @@ C:\Users\d13\Desktop\testDev\PruebaSeguros\PruebaSeguros\WebAPI\MVC\bin\System.W
 C:\Users\d13\Desktop\testDev\PruebaSeguros\PruebaSeguros\WebAPI\MVC\bin\System.Web.WebPages.Razor.dll
 C:\Users\d13\Desktop\testDev\PruebaSeguros\PruebaSeguros\WebAPI\MVC\bin\WebGrease.dll
 C:\Users\d13\Desktop\testDev\PruebaSeguros\PruebaSeguros\WebAPI\MVC\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\d13\Desktop\testDev\PruebaSeguros\PruebaSeguros\WebAPI\MVC\bin\System.Net.Http.Formatting.xml
 C:\Users\d13\Desktop\testDev\PruebaSeguros\PruebaSeguros\WebAPI\MVC\bin\System.Web.Helpers.xml
 C:\Users\d13\Desktop\testDev\PruebaSeguros\PruebaSeguros\WebAPI\MVC\bin\System.Web.Mvc.xml
 C:\Users\d13\Desktop\testDev\PruebaSeguros\PruebaSeguros\WebAPI\MVC\bin\System.Web.Optimization.xml
@@ -118,5 +120,3 @@ C:\Users\d13\Desktop\testDev\PruebaSeguros\PruebaSeguros\WebAPI\MVC\obj\Debug\MV
 C:\Users\d13\Desktop\testDev\PruebaSeguros\PruebaSeguros\WebAPI\MVC\obj\Debug\MVC.csproj.CopyComplete
 C:\Users\d13\Desktop\testDev\PruebaSeguros\PruebaSeguros\WebAPI\MVC\obj\Debug\MVC.dll
 C:\Users\d13\Desktop\testDev\PruebaSeguros\PruebaSeguros\WebAPI\MVC\obj\Debug\MVC.pdb
-C:\Users\d13\Desktop\testDev\PruebaSeguros\PruebaSeguros\WebAPI\MVC\bin\System.Net.Http.Formatting.dll
-C:\Users\d13\Desktop\testDev\PruebaSeguros\PruebaSeguros\WebAPI\MVC\bin\System.Net.Http.Formatting.xml

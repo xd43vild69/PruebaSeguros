@@ -1,0 +1,74 @@
+﻿@model  MVC.Models.AsignarPoliza
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Asignar Polizas</h2>
+
+@using (Html.BeginForm("Index", "AsignarPoliza", FormMethod.Post))
+{
+    <table class="table">
+        <tr>
+            <th>
+                Nombre
+            </th>
+            <th>
+                Estado
+            </th>
+            <th>
+                Descripción
+            </th>
+            <th>
+                Tipo Cubrimiento
+            </th>
+            <th>
+                Fecha
+            </th>
+            <th>
+                Periodo
+            </th>
+            <th>
+                Valor
+            </th>
+            <th>
+                Cliente
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model.PolizasLista)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.estado)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.descripcion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tipoCubrimiento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fechaInicio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.peridoCobertura)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.valorPoliza)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.clienteId)
+                </td>
+                <td>
+                    @Html.ActionLink("Asignar", "Asignar", new { id = item.Id }) |
+                    @Html.ActionLink("Cancelar", "Cancelar", new { id = item.Id }) |
+                </td>
+            </tr>
+        }
+    </table>
+}
