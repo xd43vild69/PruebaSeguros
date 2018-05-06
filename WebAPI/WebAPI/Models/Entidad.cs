@@ -8,8 +8,8 @@ namespace WebAPI.Models
 
         [Required]
         [StringLength(100)]
-        public string nombre { get; set; }
+        public string Nombre { get; set; }
 
-        public bool estado { get; set; }
+        public bool Estado { get; set; }
     }
 }

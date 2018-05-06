@@ -61,7 +61,7 @@ namespace MVC.Controllers
                 if (ModelState.IsValid)
                 {
                     HttpResponseMessage response = GlobalVariables.webApiCliente.PutAsJsonAsync("poliza", poliza).Result;
-                    return RedirectToAction("Index/" + poliza.clienteId);
+                    return RedirectToAction("Index/" + poliza.ClienteId);
                 }
             }
             catch
@@ -94,7 +94,7 @@ namespace MVC.Controllers
 
             }
 
-            poliza.clienteId = (int)Session["clienteId"];
+            poliza.ClienteId = (int)Session["clienteId"];
 
             //TODO: asignar cliente a la poliza seleccionada
             try
@@ -104,7 +104,7 @@ namespace MVC.Controllers
                 if (ModelState.IsValid)
                 {
                     HttpResponseMessage response = GlobalVariables.webApiCliente.PutAsJsonAsync("poliza", poliza).Result;
-                    return RedirectToAction("Index/" + poliza.clienteId);
+                    return RedirectToAction("Index/" + poliza.ClienteId);
                 }
             }
             catch

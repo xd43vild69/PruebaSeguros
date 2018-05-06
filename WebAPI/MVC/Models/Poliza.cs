@@ -6,29 +6,29 @@ namespace MVC.Models
     public class Poliza: Entidad
     {
         [Display(Name = "Descripcion")]
-        public string descripcion { get; set; }
+        public string Descripcion { get; set; }
 
         [Required]
         [Display(Name = "Tipo Cubrimiento")]
-        public int tipoCubrimiento { get; set; }
+        public int TipoCubrimiento { get; set; }
 
         [Display(Name = "Fecha Inicio")]
-        public DateTime fechaInicio { get; set; }
+        public DateTime FechaInicio { get; set; }
 
         [Required]
         [Display(Name = "Periodo Cobertura")]
         [Range(1, 12)]
-        public int peridoCobertura { get; set; }
+        public int PeridoCobertura { get; set; }
 
         [Required]
         [Display(Name = "Valor Poliza")]
         [Range(0, double.MaxValue)]
-        public double valorPoliza { get; set; }
+        public double ValorPoliza { get; set; }
 
         [Required]
         [Display(Name = "Tipo Cubrimiento")]
-        public string tipoRiesgo { get; set; }
+        public string TipoRiesgo { get; set; }
 
-        public int clienteId { get; set; }
+        public int ClienteId { get; set; }
     }
 }
