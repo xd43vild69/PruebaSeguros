@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
+using WebAPI.BLL;
 using WebAPI.DAL;
 using WebAPI.Models;
 
@@ -29,13 +30,28 @@ namespace testPoliza1.Controllers
         // POST: api/Poliza
         public void Post([FromBody]Poliza poliza)
         {
-            repositorio.Insertar(poliza);
+            Validaciones validacion = new Validaciones();
+            if(validacion.validarPorcentajeCubrimiento(poliza))
+            {
+                repositorio.Insertar(poliza);
+            }else
+            {
+                //TODO : Implementar excepción de negocio.
+            }
         }
 
         // PUT: api/Poliza/5
         public void Put([FromBody]Poliza poliza)
         {
-            repositorio.Actualizar(poliza);
+            Validaciones validacion = new Validaciones();
+            if (validacion.validarPorcentajeCubrimiento(poliza))
+            {
+                repositorio.Actualizar(poliza);
+            }
+            else
+            {
+                //TODO : Implementar excepción de negocio.
+            }
         }
 
         // DELETE: api/Poliza/5

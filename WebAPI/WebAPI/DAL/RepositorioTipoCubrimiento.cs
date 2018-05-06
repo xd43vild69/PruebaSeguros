@@ -15,7 +15,10 @@ namespace WebAPI.DAL
 
         public T BuscarPorId(int id)
         {
-            throw new NotImplementedException();
+            using (var db = new DAL.DALContexto())
+            {
+                return db.Set<T>().FirstOrDefault(x => x.Id == id);
+            }
         }
 
         public void Eliminar(int id)
@@ -35,5 +38,6 @@ namespace WebAPI.DAL
                 return db.Set<T>().ToList();
             }
         }
+
     }
 }
