@@ -11,8 +11,7 @@ namespace PruebasUnitarias
     [TestClass]
     public class AsignarPolizaTest
     {
-
-
+        
         [TestMethod]
         public void ValidacionPorcentajeCubrimientoPosible()
         {
@@ -21,11 +20,12 @@ namespace PruebasUnitarias
                 TipoCubrimiento =1,
                 TipoRiesgo= "BAJO"
             };
-
-
-            TipoCubrimiento tipoCubrimiento = new TipoCubrimiento();
-            tipoCubrimiento.Id = 1;
-            tipoCubrimiento.PorcentajeCubrimiento = 40;
+            
+            TipoCubrimiento tipoCubrimiento = new TipoCubrimiento
+            {
+                Id = 1,
+                PorcentajeCubrimiento = 40
+            };
 
             var mockSet = new Mock<IRepositorio<TipoCubrimiento>>();
 
