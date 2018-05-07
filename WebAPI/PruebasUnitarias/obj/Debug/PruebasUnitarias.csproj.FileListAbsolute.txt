@@ -39,3 +39,14 @@ C:\Users\d13\Desktop\testDev\PruebaSeguros\PruebaSeguros\WebAPI\PruebasUnitarias
 C:\Users\d13\Desktop\testDev\PruebaSeguros\PruebaSeguros\WebAPI\PruebasUnitarias\bin\Debug\System.Web.WebPages.Razor.xml
 C:\Users\d13\Desktop\testDev\PruebaSeguros\PruebaSeguros\WebAPI\PruebasUnitarias\bin\Debug\System.Web.WebPages.xml
 C:\Users\d13\Desktop\testDev\PruebaSeguros\PruebaSeguros\WebAPI\PruebasUnitarias\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\d13\Desktop\testDev\PruebaSeguros\PruebaSeguros\WebAPI\PruebasUnitarias\bin\Debug\Castle.Core.dll
+C:\Users\d13\Desktop\testDev\PruebaSeguros\PruebaSeguros\WebAPI\PruebasUnitarias\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\d13\Desktop\testDev\PruebaSeguros\PruebaSeguros\WebAPI\PruebasUnitarias\bin\Debug\Moq.dll
+C:\Users\d13\Desktop\testDev\PruebaSeguros\PruebaSeguros\WebAPI\PruebasUnitarias\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\d13\Desktop\testDev\PruebaSeguros\PruebaSeguros\WebAPI\PruebasUnitarias\bin\Debug\System.ValueTuple.dll
+C:\Users\d13\Desktop\testDev\PruebaSeguros\PruebaSeguros\WebAPI\PruebasUnitarias\bin\Debug\Castle.Core.xml
+C:\Users\d13\Desktop\testDev\PruebaSeguros\PruebaSeguros\WebAPI\PruebasUnitarias\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\d13\Desktop\testDev\PruebaSeguros\PruebaSeguros\WebAPI\PruebasUnitarias\bin\Debug\Moq.pdb
+C:\Users\d13\Desktop\testDev\PruebaSeguros\PruebaSeguros\WebAPI\PruebasUnitarias\bin\Debug\Moq.xml
+C:\Users\d13\Desktop\testDev\PruebaSeguros\PruebaSeguros\WebAPI\PruebasUnitarias\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\d13\Desktop\testDev\PruebaSeguros\PruebaSeguros\WebAPI\PruebasUnitarias\bin\Debug\System.ValueTuple.xml

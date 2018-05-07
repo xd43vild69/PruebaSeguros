@@ -8,23 +8,23 @@ namespace testPoliza1.Controllers
 {
     public class PolizaController : ApiController
     {
-        private RepositorioPoliza<Poliza> repositorio;
+        private RepositorioPoliza<Poliza> _repositorio;
 
         public PolizaController()
         {
-            repositorio = new RepositorioPoliza<Poliza>();
+            _repositorio = new RepositorioPoliza<Poliza>();
         }
 
         // GET: api/Poliza
         public IEnumerable<Poliza> Get()
         {
-            return repositorio.Listar();
+            return _repositorio.Listar();
         }
 
         // GET: api/Poliza/5
         public Poliza Get(int id)
         {
-            return repositorio.BuscarPorId(id);
+            return _repositorio.BuscarPorId(id);
         }
 
         // POST: api/Poliza
@@ -33,7 +33,7 @@ namespace testPoliza1.Controllers
             Validaciones validacion = new Validaciones();
             if(validacion.validarPorcentajeCubrimiento(poliza))
             {
-                repositorio.Insertar(poliza);
+                _repositorio.Insertar(poliza);
             }else
             {
                 //TODO : Implementar excepción de negocio.
@@ -46,7 +46,7 @@ namespace testPoliza1.Controllers
             Validaciones validacion = new Validaciones();
             if (validacion.validarPorcentajeCubrimiento(poliza))
             {
-                repositorio.Actualizar(poliza);
+                _repositorio.Actualizar(poliza);
             }
             else
             {
@@ -57,7 +57,7 @@ namespace testPoliza1.Controllers
         // DELETE: api/Poliza/5
         public void Delete(int id)
         {
-            repositorio.Eliminar(id);
+            _repositorio.Eliminar(id);
         }
     }
 }

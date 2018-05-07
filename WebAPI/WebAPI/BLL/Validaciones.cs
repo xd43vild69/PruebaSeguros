@@ -16,11 +16,16 @@ namespace WebAPI.BLL
     public class Validaciones
     {
 
-        private RepositorioTipoCubrimiento<TipoCubrimiento> repositorio;
+        private IRepositorio<TipoCubrimiento> _repositorio;
 
         public Validaciones()
         {
-            repositorio = new RepositorioTipoCubrimiento<TipoCubrimiento>();
+            _repositorio = new RepositorioTipoCubrimiento<TipoCubrimiento>();
+        }
+
+        public Validaciones(IRepositorio<TipoCubrimiento> repositorio)
+        {
+            _repositorio = repositorio;
         }
 
         /// <summary>
@@ -44,9 +49,9 @@ namespace WebAPI.BLL
             return esValido;
         }
 
-        private int buscarPorcentajeTipoCubrimiento(int id)
+        public int buscarPorcentajeTipoCubrimiento(int id)
         {
-            TipoCubrimiento tipoCubrimiento = repositorio.BuscarPorId(id);
+            TipoCubrimiento tipoCubrimiento = _repositorio.BuscarPorId(id);
 
             return tipoCubrimiento.PorcentajeCubrimiento;
         }

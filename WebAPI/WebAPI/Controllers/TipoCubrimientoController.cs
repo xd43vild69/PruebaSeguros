@@ -11,17 +11,17 @@ namespace WebAPI.Controllers
 {
     public class TipoCubrimientoController : ApiController
     {
-        private RepositorioTipoCubrimiento<TipoCubrimiento> repositorio;
+        private RepositorioTipoCubrimiento<TipoCubrimiento> _repositorio;
 
         public TipoCubrimientoController()
         {
-            repositorio = new RepositorioTipoCubrimiento<TipoCubrimiento>();
+            _repositorio = new RepositorioTipoCubrimiento<TipoCubrimiento>();
         }
 
         // GET: api/tiporiesgo
         public IEnumerable<TipoCubrimiento> Get()
         {
-            return repositorio.Listar();
+            return _repositorio.Listar();
         }
     }
 }

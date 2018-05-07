@@ -2,7 +2,7 @@
 
 namespace WebAPI.DAL
 {
-    interface IRepositorio<T>
+    public interface IRepositorio<T>
     {
         IEnumerable<T> Listar();
         T BuscarPorId(int id);

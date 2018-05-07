@@ -1,7 +1,9 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
 using WebAPI.BLL;
 using WebAPI.Controllers;
+using WebAPI.DAL;
 using WebAPI.Models;
 
 namespace PruebasUnitarias
@@ -9,29 +11,30 @@ namespace PruebasUnitarias
     [TestClass]
     public class AsignarPolizaTest
     {
-        [TestMethod]
-        public void CancelacionPoliza()
-        {
-            //TODO: validar cancelación.
-        }
 
-        [TestMethod]
-        public void AsignacionPoliza()
-        {
-            //TODO: validar asignación poliza cliente.
-        }
 
         [TestMethod]
         public void ValidacionPorcentajeCubrimientoPosible()
         {
+
+            Poliza poliza = new Poliza {
+                TipoCubrimiento =1,
+                TipoRiesgo= "BAJO"
+            };
+
+
+            TipoCubrimiento tipoCubrimiento = new TipoCubrimiento();
+            tipoCubrimiento.Id = 1;
+            tipoCubrimiento.PorcentajeCubrimiento = 40;
+
+            var mockSet = new Mock<IRepositorio<TipoCubrimiento>>();
+
             bool esValido = false;
 
-            Poliza poliza = new Poliza();
-            poliza.TipoRiesgo = "BAJO";
-            poliza.TipoCubrimiento = 1;
+            var validaciones = new Validaciones(mockSet.Object);
 
-            var validaciones = new Validaciones();
-
+            mockSet.Setup(x => x.BuscarPorId(It.IsAny<int>())).Returns(tipoCubrimiento);
+            
             esValido = validaciones.validarPorcentajeCubrimiento(poliza);
 
             Assert.IsTrue(esValido);

@@ -11,17 +11,17 @@ namespace WebAPI.Controllers
 {
     public class TipoRiesgoController : ApiController
     {
-        private RepositorioTipoDeRiesgo<TipoDeRiesgo> repositorio;
+        private RepositorioTipoDeRiesgo<TipoDeRiesgo> _repositorio;
 
         public TipoRiesgoController()
         {
-            repositorio = new RepositorioTipoDeRiesgo<TipoDeRiesgo>();
+            _repositorio = new RepositorioTipoDeRiesgo<TipoDeRiesgo>();
         }
 
         // GET: api/tiporiesgo
         public IEnumerable<TipoDeRiesgo> Get()
         {
-            return repositorio.Listar();
+            return _repositorio.Listar();
         }
 
     }
