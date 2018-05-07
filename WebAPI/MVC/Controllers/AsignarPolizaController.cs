@@ -25,8 +25,6 @@ namespace MVC.Controllers
 
                 AsignarPoliza asignarPolizar = new AsignarPoliza();
 
-                Session["clienteId"] = id;
-
                 asignarPolizar.clienteId = id;
                 asignarPolizar.PolizasLista = polizaLista.ToList();
 
@@ -81,7 +79,7 @@ namespace MVC.Controllers
 
         [Authorize]
         [HttpGet]
-        public ActionResult Asignar(int id, AsignarPoliza asignarPoliza)
+        public ActionResult Asignar(int id, int clienteId)
         {
 
             //TODO: asignar cliente a la poliza seleccionada
@@ -91,7 +89,7 @@ namespace MVC.Controllers
 
                 using (var cliente = new HttpClient())
                 {
-                    var respuesta = GlobalVariables.webApiCliente.GetAsync("poliza?id=" + asignarPoliza.id);
+                    var respuesta = GlobalVariables.webApiCliente.GetAsync("poliza?id=" + id);
                     respuesta.Wait();
 
                     var resultado = respuesta.Result;
@@ -105,7 +103,7 @@ namespace MVC.Controllers
 
                 }
 
-                poliza.ClienteId = (int)Session["clienteId"];
+                poliza.ClienteId = clienteId;
 
                 if (ModelState.IsValid)
                 {

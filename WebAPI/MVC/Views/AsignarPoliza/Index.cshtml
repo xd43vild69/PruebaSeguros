@@ -6,25 +6,18 @@
 
 <h2>Asignar Polizas</h2>
 
-@using (Html.BeginForm("Index", "AsignarPoliza", FormMethod.Post))
+@using (Html.BeginForm("Asignar", "AsignarPoliza"))
 {
     <table class="table">
         <tr>
             <th>
                 Nombre
             </th>
-            <th>
-                Estado
-            </th>
-            <th>
-                Descripción
-            </th>
+
             <th>
                 Tipo Cubrimiento
             </th>
-            <th>
-                Fecha
-            </th>
+
             <th>
                 Periodo
             </th>
@@ -43,18 +36,12 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Nombre)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Estado)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Descripcion)
-                </td>
+
+
                 <td>
                     @Html.DisplayFor(modelItem => item.TipoCubrimiento)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FechaInicio)
-                </td>
+
                 <td>
                     @Html.DisplayFor(modelItem => item.PeridoCobertura)
                 </td>
@@ -65,7 +52,7 @@
                     @Html.DisplayFor(modelItem => item.ClienteId)
                 </td>
                 <td>
-                    @Html.ActionLink("Asignar", "Asignar", new { id = item.Id }) |
+                    @Html.ActionLink("Asignar", "Asignar", new { id = item.Id, clienteId = Model.clienteId }) |
                     @Html.ActionLink("Cancelar", "Cancelar", new { id = item.Id }) |
                 </td>
             </tr>
